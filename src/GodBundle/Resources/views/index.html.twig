@@ -1,0 +1,41 @@
+{# GodBundle/Resources/views/index.html.twig #}
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Smite.link : Gods{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{% javascripts '@GodBundle/Resources/public/js/god_categories.js*' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %} 
+	{% javascripts '@GodBundle/Resources/public/js/tierlist.js*' %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %} 
+{% endblock %}
+
+{% block sidebar %}
+	{% include "GodBundle:Layout:sidebar.html.twig" %}
+	<script>domReady($('#sidebar-tab-nav-0 a').addClass('active'))</script>
+{% endblock %}
+
+
+{% block body %}
+	<div id="tab_nav_main_0">		
+		<h1 class="page-header">God List</h1>
+		<div id="tab_nav" align="right">
+			<span id="tab_nav_0" class="selected">All Gods</span>
+			<span id="tab_nav_1">Guardians</span>
+			<span id="tab_nav_2">Warriors</span>
+			<span id="tab_nav_3">Assassins</span>
+			<span id="tab_nav_4">Mages</span>
+			<span id="tab_nav_5">Hunters</span>
+		</div>
+		{% include "GodBundle:index:gods.html.twig" %}	
+	</div>
+	<div id="tab_nav_main_1" class="hidden">
+		{#% include "GodBundle:index:most_popular.html.twig" %#}
+	</div>
+	<div id="tab_nav_main_2" class="hidden">
+		{#% include "GodBundle:index:top_picks.html.twig" %#}	
+	</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Smite.link : Password Reset {% endblock %}
+
+{% block sidebar %}
+	{% include "UserBundle:Layout:sidebar.html.twig" %}
+{% endblock %}
+
+{% block body %}
+{% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
+{% endblock %}

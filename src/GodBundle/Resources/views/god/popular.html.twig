@@ -1,0 +1,23 @@
+<div class="segment row">
+	<div id="god_popular_items">
+		<h2>Popular Builds</h2>	
+		{% set count = 0 %}
+		{% set itemRow = 1 %}
+		{% set sum = 0 %}
+		{% for p_items in popularItems %}
+		<div class="col-sm-2">
+			<h2>Item {{ itemRow }}</h2>
+			{% for item in p_items %}
+				<div id="popular_item_{{ sum }}" class="col-sm-12">
+					<img src="http://cdn.smite.link/smite/items/{{ item.0.id }}.jpg"/>
+					<div>{{ ((item.magnitude / totalItems.magnitude) * 100)|round }}%</div>
+					<p>{{ item.0.name }}</p>
+				</div>
+				{% set sum = sum + 1 %}
+				{% set count = item.magnitude %}
+			{% endfor %}
+			{% set itemRow = itemRow + 1 %}
+		</div>
+		{% endfor %}
+	</div>
+</div>

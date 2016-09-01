@@ -1,0 +1,10 @@
+<div class="segment col-sm-12 container">
+	<div id="gods" class="container col-sm-12">
+	{% for god in allGods %}
+		<a id="{{ god.id }}" href="/g/{{ god.id }}" class="col-sm-1">
+			<img src="{{ god.god_icon_url }}" class="col-sm-12"/>
+		</a>
+		<script>addGodToList({{ god.id }}, "{{god.role}}");</script>
+	{% endfor %}
+	</div>
+</div>

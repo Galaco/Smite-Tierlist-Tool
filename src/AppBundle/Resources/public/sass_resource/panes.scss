@@ -1,0 +1,24 @@
+.segment {
+	background-color: $segment-background-color;
+	color: $font-color-dark;
+	margin: 0;
+	margin-bottom: $segment-margin-size;
+	padding: 32px;
+	
+	&.page-overview {
+	    line-height: 200%;
+		font-size: 18px;
+	}
+}
+
+.draggable {
+	cursor: pointer;
+}
+
+.droppable {
+	&.highlight {
+		@include vendor-prefix(transition, all 0.25s ease);
+		box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+		border: 1px solid rgba(81, 203, 238, 1);
+	}
+}

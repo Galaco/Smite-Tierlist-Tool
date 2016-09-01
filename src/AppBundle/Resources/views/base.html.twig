@@ -1,0 +1,93 @@
+{# Base/DefaultBundle/Resources/views/base.html.twig #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="google-site-verification" content="QTZLonNH7IHXXNdGfxt6r-Ipi-u8Poa3HLHIbcAHUgU" />
+		
+		<title>{% block title %}SmiteLINK{% endblock %}</title>
+		
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js" crossorigin="anonymous"></script>
+		<link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300,500,700,400italic,300italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		
+		{% block stylesheets %}
+			{% stylesheets filter="compass" '@AppBundle/Resources/public/sass/*' %}
+				 <link rel="stylesheet" href="{{ asset_url }}" />
+			{% endstylesheets %}
+		{% endblock %}
+		
+		{% block javascripts %}
+			{% javascripts 
+				'@AppBundle/Resources/public/js/*'
+			%}
+				<script src="{{ asset_url }}"></script>
+			{% endjavascripts %} 
+		{% endblock %}
+	</head>
+	<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand">
+					<span class="thin">Smite.</span><span class="thick">LINK</span>
+				</a>
+				<p class="navbar-tagline">Your Smite Conquest assistant - Beta</p>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<!--<ul class="nav navbar-nav navbar-right team">
+					<li><a href="#"><span class="thin">Smite.</span><span class="thick">LINK</span> for teams - coming soon</a></li>
+				</ul>-->
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/g">Gods</a></li>
+					<li><a href="/t">Tierlists</a></li>
+				</ul>
+				{% block search %}
+					{% if searchForm is defined %}
+					{#% include "AppBundle:Search:search.html.twig" with { form: searchForm } %#}
+					{% endif %}
+				{% endblock %}
+			</div>
+		</div>
+	</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-2 col-md-2 sidebar">
+					{% block sidebar %}{% endblock %}					
+				</div>
+				<div itemscope itemtype="http://schema.org/Article"  class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+					<div id="flashMessages">{% for flashMessage in app.session.flashbag.get('notice') %}{{ flashMessage }} {% endfor %}</div>
+					{% block body %}{% endblock %}
+					<div class="col-sm-12" style="padding: 0">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- page_bottom -->
+						<ins class="adsbygoogle"
+							 style="display:block"
+							 data-ad-client="ca-pub-6329035550787448"
+							 data-ad-slot="3277369618"
+							 data-ad-format="auto"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
+				</div>
+				<div class="col-sm-2 col-md-2"></div>
+				<footer class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 footer" id="footerContainer">
+					<div>
+						<div class="info left">
+							<p>&copy; 2014-2016 Galaco Software Projects.</p>
+							<p>SMITE is owned by <a href="http://www.smitegame.com">Hi-rez Studios</a></p>
+						</div>
+						<div class="info right">
+							<p>Powered by <a href="https://symfony.com/">Symfony2</a></p>
+							<p><a href="https://galaco.me">Contact</a></p>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</body>
+</html>

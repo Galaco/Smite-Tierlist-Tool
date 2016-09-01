@@ -1,0 +1,27 @@
+<div class="segment" id="account_link_smite_account">
+	<h2 class="segment-title">Attach a Smite account</h2>
+	<p>Add a Smite name for easy profile access on the sidebar</p>
+	<p><span>Marked account: </span><span id="linked_account_name">{{ app.user.linkedAccountName }}</span></p>
+	<input type="text" placeholder="Smite player name" id="linked_account_input"/>
+	<button class="button submit" id="linked_account_name_save">Save</button>
+</div>
+<script>
+$(document).ready(function() {
+	$('#linked_account_name_save').click(function() {
+		data = {};
+		data['linkedAccount'] = $('#linked_account_input').val();
+		
+		params = JSON.stringify(data);
+		performXhr('/user/profile/save', 
+			params,
+			function() {
+				$('#linked_account_name').html($('#linked_account_input').val());
+				$('#linked_account_input').val('');
+				flashMessage('notice', 'Your changes have been saved successfully.');
+			},
+			false,
+			false
+		);
+	});
+});
+</script>

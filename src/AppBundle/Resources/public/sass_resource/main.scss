@@ -1,0 +1,377 @@
+*[id^='tab_nav_main_']{
+	&.hidden {
+		display: none;
+	}
+}
+
+/**************************************************************************************/
+/*	HOME PAGE
+/**************************************************************************************/
+video#bgvid {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	@include vendor-prefix(transform, translateX(-50%) translateY(-50%));
+	background: url(http://cdn.smite.link/img/home/static_bg.jpg) no-repeat;
+	background-size: cover;
+}
+
+.fullwidth-outer {
+	width: 100%;
+	min-height: 70vh;
+	margin-top: 30vh;
+	
+	&:nth-child(odd) {
+		background-color: $font-color-dark;
+		color: $font-color-light;
+	}
+	
+	&:nth-child(even) {
+		background-color: $font-color-light;
+		color: $font-color-dark;
+	}
+	
+	.container {
+		padding: 64px;
+		
+		h2 {
+			font-size: 28px;
+			margin-bottom: 32px;
+		}
+		
+		p {
+			line-height: 260%;
+			font-size: 20px;
+			margin-bottom: 16px;
+		}
+	}
+}
+
+/**************************************************************************************/
+/*	GOD PAGES
+/**************************************************************************************/
+#tab_nav {
+	height: 48px;
+	
+	span {
+		@extend .button;
+		height: 48px;
+		float: right;
+		line-height: 200%;
+		
+		&.selected {
+			background-color: $button-standard-hover-background;
+		}
+	}
+}
+#gods {
+	padding: 0;
+	a {
+		padding: 0;
+		width: 72px;
+		min-width: 72px;
+		max-width: 72px;
+		
+		img {
+			padding: 0;
+			width: 72px;
+			height: 72px;
+		}
+	}
+}
+
+.gods_most_popular, .gods_top_picks {
+	.gods {
+		width: 20%;
+		text-align: center;
+	}
+	
+	p {
+		&.role {
+			font-size: 28px;
+			color: $font-color-dark;
+			text-decoration: none;
+				
+			&:hover {
+				text-decoration: none;	
+			}
+		}
+	}
+		
+	a {
+		opacity: 1;
+		@include vendor-prefix(transition, opacity .5s linear);
+		
+		&:hover {
+			@include vendor-prefix(transition, opacity .5s linear);
+			opacity: 0.6;
+			text-decoration: none;	
+		}
+		
+		p {
+			&.role {
+				font-size: 28px;
+				color: $font-color-dark;
+				text-decoration: none;
+				
+				&:hover {
+					text-decoration: none;	
+				}
+			}
+			&.title {
+				font-size: 22px;
+			}
+		}
+		
+		img {
+			border-radius: 50%;
+			overflow: hidden;
+			padding: 0;
+			margin: 0;
+		}
+	}
+}
+
+#god_base {
+	min-height: 800px;
+	padding: 0;
+	
+	#god_sidebar {
+		padding: 0;
+		
+		&.container {
+			margin: 0;
+			background-color: $segment-background-color;
+			background-clip: padding-box;
+			border-right: 10px solid transparent;
+			
+			img {
+				padding: 0;
+			}
+			
+			h2, h3 {
+				text-align: center;
+				color: $font-color-light;
+				background: $color-blue-offbackground;
+				padding-top: 8px;
+				padding-bottom: 8px;
+				font-size: 20px;
+			}
+			
+			h3 {
+				font-size: 16px;
+			}
+			
+			div {
+				&.container {
+					padding: 0;
+				}
+				
+				p {
+					font-size: 16px;
+					font-weight: 100;
+					padding-top: 4px;
+					padding-bottom: 4px;
+				}
+			}
+		}
+	}
+	
+	#god_main_abilities {
+		h2 {
+			font-size: 20px;
+			margin: 10px 0 10px;
+			border-bottom: 1px solid #000;
+		}
+	
+		.container, .col-sm-1, .col-sm-11, .col-sm-12 {
+			padding: 0;
+		}
+		
+		p {
+			&.col-sm-12 {
+				margin: 0;
+			}
+		}
+		
+		> .col-sm-12 {
+			&:after {
+				width: 60%;
+				height: 4px;
+				background-color: $font-color-dark;
+				margin: 0 auto;
+				margin-bottom: 32px;
+			}
+		}
+	}
+	
+	#god_main_lore {
+		> h2 {
+			font-size: 20px;
+			margin: 10px 0 10px;
+			border-bottom: 1px solid #000;
+		}
+	}
+	
+	#god_popular_items {
+		> h2 {
+			font-size: 20px;
+			margin: 10px 0 10px;
+			border-bottom: 1px solid #000;
+		}
+			
+		> div.col-sm-2 {
+			text-align: center;
+		}
+		
+		.col-sm-12 {
+		    position: relative;
+			padding: 0;
+			
+			img {
+			    max-width: 100%;
+				&:hover {
+					~ p {
+						display: block;
+					}
+				}
+			}
+			
+			p {
+				@vendor-prefix(box-sizing, border-box);
+				display: none;
+				position: absolute; 
+				padding: 4px;
+				background: $font-color-dark;
+				color: $font-color-light;
+				margin-bottom: 8px;
+				z-index: 10;
+			}
+		}
+	}
+	
+	#god_default_items {
+		> h2:first-child {
+			font-size: 20px;
+			margin: 10px 0 10px;
+			border-bottom: 1px solid #000;
+		}
+		
+		h2.category {
+			font-size: 18px;
+		}
+		
+		> .row {
+			margin-bottom: 8px;
+		}
+		
+		.row {
+			&.col-sm-3 {
+				text-align: center;
+				position: relative;
+				margin: 0;
+				
+				img {
+				    max-width: 100%;
+					&:hover {
+						~ p {
+							display: block;
+						}
+					}
+				}
+				
+				p {
+					@vendor-prefix(box-sizing, border-box);
+					display: none;
+					position: relative;
+					padding: 4px;
+					background: $font-color-dark;
+					color: $font-color-light;
+					margin-bottom: 8px;
+					z-index: 10;
+				}
+			}
+		}
+	}
+}
+
+/**************************************************************************************/
+/*	TIERLIST PAGES
+/**************************************************************************************/
+#gods_saved_tier_list, #gods_new_tier_list, #gods_aggregate_tier_list {
+	margin: 0;
+	padding: 32px;
+	
+	.row {
+		min-height: 56px;
+		margin-bottom: 2px;
+		
+		&.droppable {
+			margin: 0;
+			padding: 0;
+			display: inline-block;
+		}
+		
+		&.col-sm-12, &.col-sm-6 {
+			.tier {
+				padding-left: 0;
+				padding-right: 0;
+				background: #000;
+				color: $font-color-light;
+				text-align: center;
+			}
+		}
+		
+		&.col-sm-12 {
+			.col-sm-1 {
+				width: 4.1%;
+			}
+		}
+	}
+	.col-sm-1 {
+		p {
+			min-height: 28px;
+			line-height: 350%;
+		}
+	}
+	img {
+		height: 56px;
+		max-height: 56px;
+		min-height: 56px;
+		width: 56px;
+		max-width: 56px;
+		min-width: 56px;
+	}
+	
+	.god {
+		&.col-sm-1 {
+			padding: 0;
+			margin: 0;
+		}
+	}
+	
+	.button.submit {
+		padding: 8px 0 8px 0;
+		margin-top: 16px;
+		text-align: center;
+	}
+	
+	#tierlist_form {
+		padding: 16px 0 0 0;
+		
+		button {
+			@extend .button;
+			@extend .button.submit;
+			padding: 8px 32px 8px 32px;
+		}
+	}
+}
+
+/**************************************************************************************/
+/*	ITEM PAGES
+/**************************************************************************************/

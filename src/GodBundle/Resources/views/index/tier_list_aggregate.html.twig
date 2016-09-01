@@ -1,0 +1,70 @@
+<div class="segment large" id="gods_aggregate_tier_list">
+	<h2 class="segment-title">Tier List</h2>
+	<div class="row-container sum-1">
+		<p class="row">Our users create their own tier lists. This is an aggregation of all their contributions; a community tier list.</p>
+	</div>
+	<div class="segment-content">
+		<div class="row-container sum-2 small">
+			<div class="row"><p>SS</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>S+</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2">
+			<div class="row"><p>S</p></div>
+			<div class="row gods row-container sum-20"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>S-</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>A+</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2">
+			<div class="row"><p>A</p></div>
+			<div class="row gods row-container sum-20"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>A-</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>B+</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2">
+			<div class="row"><p>B</p></div>
+			<div class="row gods row-container sum-20"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>B-</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>C+</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2">
+			<div class="row"><p>C</p></div>
+			<div class="row gods row-container sum-20"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>C-</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-2 small">
+			<div class="row"><p>D</p></div>
+			<div class="row gods row-container sum-10"></div>
+		</div>
+		<div class="row-container sum-1">
+			<div class="row gods row-container sum-20"></div>
+		</div>
+	</div>
+	{% for god in tierList %}
+		<script>addGodToAggregateTierList({{ god.id }}, "{{ god.name }}", "{{ god.god_icon_url }}", {{ god.tier_level }})</script>
+	{% endfor %}
+</div>

@@ -1,0 +1,103 @@
+form {
+	input {
+		&[type="button"], &[type="submit"] {
+			padding: 8px 32px 8px 32px;
+			border: 0;
+			cursor: pointer;
+			font-size: 16px;
+			color: $font-color-light;
+		}
+		
+		&[type="button"] {
+			background: $button-standard-background;
+			
+			&:hover {
+				background: $button-standard-hover-background;
+			}
+		}
+		
+		&[type="submit"] {
+			background: $button-submit-background;
+		
+			&:hover {
+				background: $button-submit-hover-background;
+			
+			}
+		}
+		
+		&[type="text"], &[type="email"], &[type="password"] {
+			border: 1px solid;
+			padding: 6px 12px;
+			width: 240px;
+			
+			&:focus {
+			
+			}
+		}
+	}
+}
+
+.button {
+	padding: 8px 32px 8px 32px;
+	max-width: 160px;
+	border: 0;
+	cursor: pointer;
+	font-size: 16px;
+	color: $font-color-light;
+	background: $button-standard-background;
+			
+	&:hover {
+		background: $button-standard-hover-background;
+	}
+	
+	&.submit {
+		background: $button-submit-background;
+		
+		&:hover {
+			background: $button-submit-hover-background;
+		}
+	}
+}
+
+.form-signin {
+	max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+	
+	.form-signin-heading {
+		margin-bottom: 10px;
+		font-size: 30px;
+		color: $font-color-light;
+	}
+	
+	label {
+		color: $font-color-light;
+	}
+	
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0,0,0,0);
+		border: 0;
+	}
+	
+	input[type="email"] {
+		margin-bottom: -1px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	
+	.form-control {
+		position: relative;
+		height: auto;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 10px;
+		font-size: 16px;
+	}
+}

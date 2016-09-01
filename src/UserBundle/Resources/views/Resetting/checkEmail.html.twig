@@ -1,0 +1,15 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% trans_default_domain 'UserBundle' %}
+
+{% block sidebar %}
+	{% include "UserBundle:Layout:sidebar.html.twig" %}
+	<script>domReady($('#sidebar-account-login').addClass('active'))</script>
+{% endblock %}
+
+{% block body %}
+<h1 class="page-header">An email has been sent</h1>
+<p>
+{{ 'resetting.check_email'|trans({'%email%': email}) }}
+</p>
+{% endblock %}

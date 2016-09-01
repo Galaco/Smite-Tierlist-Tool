@@ -1,0 +1,45 @@
+{# GodBundle/Resources/views/index.html.twig #}
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Smite.link : Your conquest assistant{% endblock %}
+
+{% block body %}
+	<video autoplay loop="true" poster="https://dl.dropboxusercontent.com/u/30939920/smite.link/static_bg.jpg?dl=1" id="bgvid" onended="replayVideo()">
+		<source src="https://dl.dropboxusercontent.com/u/30939920/smite.link/bg.webm?dl=1" type="video/webm">
+		<source src="https://dl.dropboxusercontent.com/u/30939920/smite.link/bg.mp4?dl=1" type="video/mp4">
+	</video>
+	<div class="fullwidth-outer first">
+		<div class="container">
+		<meta itemprop="articleBody" content="Smite.link is a webapp for casual players looking to get into ranked Conquest play in the MOBA Smite. (Conquest is the primary 5v5 game mode used in tournament play). The objective is to provide enough information for new players of Conquest (casual or ranked) for them to make more informed god and build choices.</P>
+			<P>Smite.link has 2 core features: It provides information on gods pulled from real recent Ranked Conquest match history, and user-generated tierlist functionality">
+			<h2 itemprop="articleSection">What is <span itemprop="name">Smite.LINK</span>?</h2>
+			<p>Smite.link is a webapp for casual players looking to get into ranked Conquest play in the MOBA Smite. (Conquest is the primary 5v5 game mode used in tournament play). The objective is to provide enough information for new players of Conquest (casual or ranked) for them to make more informed god and build choices.</p>
+			<p>Smite.link has 2 core features: It provides information on gods pulled from real recent Ranked Conquest match history, and user-generated tierlist functionality.</p>
+		</div>
+	</div>
+	<div class="fullwidth-outer">
+		<div class="container">
+			<h2>Gods</h2>
+			<p>Making the right choices during picks and bans can be the difference between domination and total submission for a team. Smite.link provides information on the most popular picks and bans, as well as gods with the highest win ratio. It operates on a rolling basis, as game balance is continuously adjusted and trends come and go.</p>
+		</div>
+	</div>
+	<div class="fullwidth-outer">
+		<div class="container">
+			<h2>Tierlists</h2>
+			<p>Users can sign up to Smite.link in order to better contribute to the aggregate tierlist. The aggregate tierlist looks at all created tierlists, and determines an average. This tierlist represents the opinion of the community as a whole on god rankings. The more information collected, the more accurate the results.</p>
+		</div>
+	</div>
+	
+	<script>
+		domReady(function(){
+			controlVideoPlayback(); 
+			$('.sidebar').css('display', 'none');	
+			$('.col-sm-10.col-sm-offset-2.col-md-10.col-md-offset-2.main')
+				.removeClass('col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main');
+			$('body > .container-fluid > .row > .col-sm-2.col-md-2').css('display', 'none');
+			$('#footerContainer')
+				.removeClass('col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2')
+				.addClass('col-sm-12');
+		});
+	</script>
+{% endblock %}

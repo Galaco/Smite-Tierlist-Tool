@@ -1,0 +1,75 @@
+<h1 class="page-header">Most Popular</h1>
+<div class="segment gods_most_popular row">
+	<div class="row col-sm-12">
+		<div class="col-sm-1 gods">
+			<p class="role">Hunter</p>
+			{% set count = 0 %}
+			{% for god in mostPlayed %}
+				{% if god.role == " Hunter" and count < 3 %}
+					<a href="/g/{{ god.id }}" class="col-sm-{{ 5 - count }} god">
+						<p>{{ count + 1 }}</p>
+						<img src="{{ god.god_icon_url }}" class="col-sm-12""/>
+						<p class="title">{{ god.name }}</p>
+					</a>
+					{% set count = count + 1 %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="col-sm-1 gods">
+			<p class="role">Mage</p>
+			{% set count = 0 %}
+			{% for god in mostPlayed %}
+				{% if god.role == " Mage" and count < 3 %}
+					<a href="/g/{{ god.id }}" class="col-sm-{{ 5 - count }} god">
+						<p>{{ count + 1 }}</p>
+						<img src="{{ god.god_icon_url }}" class="col-sm-12"/>
+						<p class="title">{{ god.name }}</p>
+					</a>
+					{% set count = count + 1 %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="col-sm-1 gods">
+			<p class="role">Assassin</p>
+			{% set count = 0 %}
+			{% for god in mostPlayed %}
+				{% if god.role == " Assassin" and count < 3 %}
+					<a href="/g/{{ god.id }}" class="col-sm-{{ 5 - count }} god">
+						<p>{{ count + 1 }}</p>
+						<img src="{{ god.god_icon_url }}" class="col-sm-12"/>
+						<p class="title">{{ god.name }}</p>
+					</a>
+					{% set count = count + 1 %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="col-sm-1 gods">
+			<p class="role">Warrior</p>
+			{% set count = 0 %}
+			{% for god in mostPlayed %}
+				{% if god.role == " Warrior" and count < 3 %}
+					<a href="/g/{{ god.id }}" class="col-sm-{{ 5 - count }} god">
+						<p>{{ count + 1 }}</p>
+						<img src="{{ god.god_icon_url }}" class="col-sm-12"/>
+						<p class="title">{{ god.name }}</p>
+					</a>
+					{% set count = count + 1 %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="col-sm-1 gods">
+			<p class="role">Guardian</p>
+			{% set count = 0 %}
+			{% for god in mostPlayed %}
+				{% if god.role == " Guardian" and count < 3%}
+					<a href="/g/{{ god.id }}" class="col-sm-{{ 5 - count }} god">
+						<p>{{ count + 1 }}</p>
+						<img src="{{ god.god_icon_url }}" class="col-sm-12"/>
+						<p class="title">{{ god.name }}</p>
+					</a>
+					{% set count = count + 1 %}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>

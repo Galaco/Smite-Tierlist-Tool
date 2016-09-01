@@ -1,0 +1,16 @@
+{% if app.user %}
+	<ul class="nav nav-sidebar">
+		<li><a id="sidebar-account-profile" href="/user/profile">Manage Account</a></li>
+		<li><a id="sidebar-account-logout" href="/user/logout">Logout</a></li>
+	</ul>					
+	{% if is_granted('ROLE_ADMIN') %}
+	<ul class="nav nav-sidebar">
+		<li><a id="sidebar-account-admin" href="/admin">Administration</a></li>
+	</ul>
+	{% endif %}
+{% else %}
+	<ul class="nav nav-sidebar">
+		<li><a id="sidebar-account-register" href="/user/register">Register</a></li>
+		<li><a id="sidebar-account-login" href="/user/login">Login</a></li>
+	</ul>
+{% endif %}

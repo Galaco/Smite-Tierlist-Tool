@@ -1,0 +1,13 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Smite.link : Profile {% endblock %}
+
+{% block sidebar %}
+	{% include "UserBundle:Layout:sidebar.html.twig" %}
+	<script>domReady($('#sidebar-account-profile').addClass('active'))</script>
+{% endblock %}
+
+
+{% block body %}
+{% include "UserBundle:Profile:show_content.html.twig" %}
+{% endblock %}

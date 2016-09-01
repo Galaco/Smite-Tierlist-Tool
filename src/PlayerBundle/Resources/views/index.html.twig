@@ -1,0 +1,23 @@
+{# GodBundle/Resources/views/index.html.twig #}
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Smite.link : {{ player.username }}{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+	<div class="page_header">
+		<h3 id="page_title">God List</h3>
+		<div id="tab_nav" align="right">
+			<span id="tab_nav_0" class="selected">All Gods</span>
+			<span id="tab_nav_1">Guardians</span>
+			<span id="tab_nav_2">Warriors</span>
+			<span id="tab_nav_3">Assassins</span>
+			<span id="tab_nav_4">Mages</span>
+			<span id="tab_nav_5">Hunters</span>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+<h1 class="page-header">Top Win Rates</h1>
+<div class="segment gods_most_played">
+	<div class="row-container sum-{{ mostPlayed|length }}">
+	{% for god in mostPlayed %}
+		<a href="/god/{{ god.id }}" class="row">
+			<p class="role">{{ god.role }}</p>
+			<span class="image"><img src="{{ god.god_icon_url }}"/></span>
+			<p class="title">{{ god.name }}</p>
+		</a>
+	{% endfor %}
+	</div>
+</div>

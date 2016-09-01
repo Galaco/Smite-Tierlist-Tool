@@ -1,0 +1,5 @@
+AuthName "Secure"
+AuthType Basic
+AuthUserFile /srv/www/smite.link/auth/.htpasswd
+require valid-user
+
