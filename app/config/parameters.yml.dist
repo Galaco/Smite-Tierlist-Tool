@@ -1,0 +1,34 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host:     127.0.0.1
+    database_driver: pdo_mysql
+    database_port:     3306
+    database_name:     dbname
+    database_user:     user
+    database_password: password
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: secret
+    aws_key:                        aws_key
+    aws_secret:                     aws_secret
+    aws_account_id:                 aws_account_id
+    aws_canonical_id:               aws_canonical_id
+    aws_canonical_name:             aws_canonical_name
+    aws_mfa_serial:                 aws_mfa_serial
+    aws_cloudfront_keypair:         aws_cloudfront_keypair
+    aws_cloudfront_pem:             aws_cloudfront_pem
+
+    smite_dev_id:                   smite_dev_id
+    smite_auth_key:                 smite_auth_key
+    smite_base_uri:                 http://api.smitegame.com/smiteapi.svc/
+
+    smite_aws_s3_bucket:            smite_aws_s3_bucket
