@@ -25,10 +25,15 @@ class GodController extends DefaultController
 			$total = count($data);
 			foreach($data as $jsonGod) {
 				$count++;
-				
-				try {
+
+                $abilities = $this->updateAbilities($jsonGod);
+                $stats = $this->updateStats($jsonGod);
+                $god = $this->updateGod($jsonGod, $stats, $abilities);
+                $this->updateRecommendedItems($god);
+
+                /*try {
 					$abilities = $this->updateAbilities($jsonGod);		
-					$stats = $this->updateStats($jsonGod);			
+					$stats = $this->updateStats($jsonGod);
 					$god = $this->updateGod($jsonGod, $stats, $abilities);
 					$this->updateRecommendedItems($god);
 				} catch(\Exception $e) {
@@ -37,7 +42,7 @@ class GodController extends DefaultController
 					var_dump('Error processing god: ' . $jsonGod['Name'] . ' ' . $count . '/' . $total);
 					$this->flushResponse();
 					continue;
-				}
+				}*/
 				
 				//Stream back a response
 				var_dump('Processed god: ' . $jsonGod['Name'] . ' ' . $count . '/' . $total);
@@ -54,7 +59,7 @@ class GodController extends DefaultController
 		$abilities = [];
 		$i=0;
 		
-		try {
+		//try {
 			while ($i < 5)
 			{
 				$abilities[$i] = new GodAbility();
@@ -63,10 +68,12 @@ class GodController extends DefaultController
 				$abilities[$i]->setSummary(			$god['Ability_' . (string)($i+1)]['Summary']);
 					
 				//Make sure s3 has the ability image
-				$url = "smite/gods/abilities/" . end(explode("/", $god['Ability_' . (string)($i+1)]['URL']));
-				$this->_awsHelper->uploadToBucket(	$god['Ability_' . (string)($i+1)]['URL'], $url);
-					
-				$abilities[$i]->setUrl(				$this->_awsHelper->getBucketName() . '/' . $url);
+				//$url = "smite/gods/abilities/" . end(explode("/", $god['Ability_' . (string)($i+1)]['URL']));
+				//$this->_awsHelper->uploadToBucket(	$god['Ability_' . (string)($i+1)]['URL'], $url);
+                $abilities[$i]->setUrl('');
+
+
+                //$abilities[$i]->setUrl(				$this->_awsHelper->getBucketName() . '/' . $url);
 				$abilities[$i]->setDescription(		$god['Ability_' . (string)($i+1)]['Description']['itemDescription']['description']);
 				$abilities[$i]->setCooldown(		$god['Ability_' . (string)($i+1)]['Description']['itemDescription']['cooldown']);
 				$abilities[$i]->setCost(			$god['Ability_' . (string)($i+1)]['Description']['itemDescription']['cost']);
@@ -76,10 +83,11 @@ class GodController extends DefaultController
 			}
 			
 			$em->flush();
-		} catch(\Exception $e) {
-			var_dump($abilities);
-			throw new \Exception('Failure updating abilities.');
-		}
+		//}
+		// catch(\Exception $e) {
+			//var_dump($abilities);
+			//throw new \Exception('Failure updating abilities.');
+		//}
 		
 		return $abilities;
 	}
@@ -139,11 +147,11 @@ class GodController extends DefaultController
 			$god->setLore(		$jsonGod['Lore']);
 				
 			$url = "smite/gods/" . $jsonGod['id'] . "c.jpg";
-			$this->_awsHelper->uploadToBucket(	$jsonGod['godCard_URL'], $url);
+			//$this->_awsHelper->uploadToBucket(	$jsonGod['godCard_URL'], $url);
 			$god->setGodCardUrl($this->_awsHelper->getBucketName() . '/' . $url);
 				
 			$url = "smite/gods/" . $jsonGod['id'] . ".jpg";
-			$this->_awsHelper->uploadToBucket(	$jsonGod['godIcon_URL'], $url);
+			//$this->_awsHelper->uploadToBucket(	$jsonGod['godIcon_URL'], $url);
 			$god->setGodIconUrl($this->_awsHelper->getBucketName() . '/' . $url);
 				
 			$god->setPros(		$jsonGod['Pros']);

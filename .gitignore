@@ -8,3 +8,4 @@ app/bootstrap.php.cache
 vendor/
 web/bundles
 *.cache
+\.DS_Store

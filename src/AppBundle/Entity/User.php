@@ -18,11 +18,11 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-	
+
 	/**
      * @ORM\Column(type="string")
      */
-    private $linked_account_name;
+    private $linked_account_name = 'dormantlemon';
 
     public function __construct()
     {

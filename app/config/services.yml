@@ -17,6 +17,7 @@ services:
         class: AppBundle\Util\ApiHelper
         arguments:
             entityManager: "@doctrine.orm.entity_manager"
+            serviceContainer: "@service_container"
     appbundle.util.awshelper:
         class: AppBundle\Util\AwsHelper
         arguments:

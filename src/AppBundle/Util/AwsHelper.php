@@ -25,7 +25,7 @@ class AwsHelper
         $this->_container = $serviceContainer;	
 		$this->_s3 = $serviceContainer->get('aws_s3');
 		$this->_s3->setRegion('s3-eu-west-1.amazonaws.com');
-        $this->_bucketName = $serviceContainer->get('smite_aws_s3_bucket');
+        $this->_bucketName = $serviceContainer->getParameter('smite_aws_s3_bucket');
 		$this->_bucket = $this->_bucketName . strtolower($this->_s3->key);
     }
 	
