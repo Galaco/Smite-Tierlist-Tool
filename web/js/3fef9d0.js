@@ -1,22 +1,39 @@
 $(document).ready(function(){
 	hookPageNavbar();
-	
-	$('#recache_gods').click(function() {
-			performXhr(
-				'/admin/recache/gods', 
-				'',
-				function(data) {
-					$('#console_log').append(data);
-				},
-				function(data) {
-					$('#console_log').html(data);
-				},
-				function(data) {
-					$('#console_log').append(data);
-				}
-			)	
-		}	
-	);
+
+    $('#recache_gods').click(function() {
+            performXhr(
+                '/admin/api/smite/fetch',
+                '',
+                function(data) {
+                    $('#console_log').append(data);
+                },
+                function(data) {
+                    $('#console_log').html(data);
+                },
+                function(data) {
+                    $('#console_log').append(data);
+                }
+            )
+        }
+    );
+
+	/*$('#recache_gods').click(function() {
+	 performXhr(
+	 '/admin/recache/gods',
+	 '',
+	 function(data) {
+	 $('#console_log').append(data);
+	 },
+	 function(data) {
+	 $('#console_log').html(data);
+	 },
+	 function(data) {
+	 $('#console_log').append(data);
+	 }
+	 )
+	 }
+	 );*/
 
 	$('#recache_items').click(function() {
 			performXhr(

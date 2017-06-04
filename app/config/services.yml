@@ -7,29 +7,14 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-    appbundle.util.searchhelper:
-        class: AppBundle\Util\SearchHelper
+    api.gamedataprovider:
+        class: AdminBundle\Util\GameDataProvider
         arguments:
             serviceContainer: "@service_container"
-            router: "@router"
-            entityManager: "@doctrine.orm.entity_manager"
-    appbundle.util.apihelper:
-        class: AppBundle\Util\ApiHelper
-        arguments:
-            entityManager: "@doctrine.orm.entity_manager"
-            serviceContainer: "@service_container"
-    appbundle.util.awshelper:
-        class: AppBundle\Util\AwsHelper
+    amazon.s3:
+        class: AdminBundle\Util\Amazon\S3
         arguments:
             serviceContainer: "@service_container"
-    godbundle.util.tierlisthelper:
-        class: GodBundle\Util\TierlistHelper
-        arguments:
-            serviceContainer: "@service_container"
-    matchbundle.command.update:
-        class: MatchBundle\Console\Command\UpdateMatchCommand
-        tags:
-            - { name: match.update }
     pdo:
         class: PDO
         arguments:

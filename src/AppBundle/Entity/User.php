@@ -19,11 +19,6 @@ class User extends BaseUser
      */
     protected $id;
 
-	/**
-     * @ORM\Column(type="string")
-     */
-    private $linked_account_name = 'dormantlemon';
-
     public function __construct()
     {
         parent::__construct();
@@ -38,26 +33,5 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Get linked account name
-     *
-     * @return string 
-     */
-    public function getLinkedAccountName()
-    {
-        return $this->linked_account_name;
-    }
-
-    /**
-     * Set linked account name
-     *
-     * @return \User 
-     */
-    public function setLinkedAccountName($linkedAccountName)
-    {
-        $this->linked_account_name = $linkedAccountName;
-		return $this->linked_account_name;
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "mysmite/mysmite.rocks",
+    "name": "aggregatier",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -22,7 +22,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
 		"kriswallsmith/assetic": "1.4.0",
 		"friendsofsymfony/user-bundle": "v2.0.0-alpha3",
-        "cybernox/amazon-webservices-bundle": "^1.5"
+        "cybernox/amazon-webservices-bundle": "^1.5",
+        "symfony/cache": "3.1.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

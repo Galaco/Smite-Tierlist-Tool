@@ -35,7 +35,7 @@ framework:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: true
-    bundles:        [AdminBundle, AppBundle, GodBundle, ItemBundle, MatchBundle, UserBundle]
+    bundles:        [AdminBundle, AppBundle, TierBundle]
     #java: /usr/bin/java
     filters:
         compass: 

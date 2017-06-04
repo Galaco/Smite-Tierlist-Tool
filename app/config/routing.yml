@@ -2,64 +2,28 @@ appbundle_index_index:
     path: /
     defaults: { _controller: AppBundle:Home:index }
 
-appbundle_home_index:
-    path: /h
-    defaults: { _controller: AppBundle:Home:home }
-
-appbundle_home_search:
-    path: /h/search
-    defaults: { _controller: AppBundle:Home:search }
-
 adminbundle_index_index:
     path: /admin
     defaults: { _controller: AdminBundle:Index:index }
 
-adminbundle_api_test:
-    path: /admin/api/test/{_requestName}
-    defaults: { _controller: AdminBundle:API:test, _requestName: "" }
+adminbundle_index_addgame:
+    path: /admin/games/add
+    defaults: { _controller: AdminBundle:Index:AddGame }
 
-adminbundle_recache_gods:
-    path: /admin/recache/gods
-    defaults: { _controller: AdminBundle:God:recache }
-
-adminbundle_recache_items:
-    path: /admin/recache/items
-    defaults: { _controller: AdminBundle:Item:recache }
-
-godbundle_god_index:
-    path: /g
-    defaults: { _controller: GodBundle:God:index}
-
-godbundle_god_god:
-    path: /g/{_id}
-    defaults: { _controller: GodBundle:God:god, _id: "-1" }
-
-godbundle_tierlist_index:
-    path: /t
-    defaults: { _controller: GodBundle:Tierlist:index}
-
-godbundle_tierlist_new:
-    path: /t/new
-    defaults: { _controller: GodBundle:Tierlist:new}
-
-godbundle_tierlist_save:
-    path: /t/save
-    defaults: { _controller: GodBundle:Tierlist:save}
-
-godbundle_tierlist_list:
-    path: /t/{_unique}
-    defaults: { _controller: GodBundle:Tierlist:list, _unique: "-1"}
+adminbundle_api_index:
+    path: /admin/api/{_gameId}/{_request}
+    defaults: { _controller: AdminBundle:Api:index, _gameId: "", _request: "" }
 
 fos_user_security:
-    resource: "@UserBundle/Resources/config/routing/security.xml"
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix: /user/login
 
 fos_user_profile:
-    resource: "@UserBundle/Resources/config/routing/profile.xml"
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
     prefix: /user/profile
 
 fos_user_register:
-    resource: "@UserBundle/Resources/config/routing/registration.xml"
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
     prefix: /user/register
 
 fos_user_security_logout:

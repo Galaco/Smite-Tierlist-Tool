@@ -2,15 +2,9 @@
 
 namespace AdminBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use AppBundle\Controller\DefaultController;
-use Doctrine\ORM\Query\ResultSetMapping;
+use AppBundle\Controller\AbstractController;
 
-use FOS\UserBundle\FOSUserEvents;
-use FOS\UserBundle\Event\GetResponseUserEvent;
-use FOS\UserBundle\Model\UserInterface;
-
-class IndexController extends DefaultController
+class IndexController extends AbstractController
 {
 	public function IndexAction()
 	{		
@@ -26,15 +20,49 @@ class IndexController extends DefaultController
 			->getDoctrine()
 			->getManager()
 			->createNativeQuery('SELECT table_schema "smite", sum(data_length + index_length)/1024/1024 "size in MB" FROM information_schema.TABLES GROUP BY table_schema', $rsm);
-		$db_size = $query->getArrayResult();*/		
+		$db_size = $query->getArrayResult();*/
+
+		$serverStats = [
+            'hddUsage' => $hdd_usage . '/' . $hdd_total . 'GB used',
+            'ramUsage' => $mem_usage . 'MB used by PHP',
+            'cpuUsage' => 0,//(sys_getloadavg()[0]),
+            'dbSize' => ''//$db_size['']['size in MB'] . 'MB'
+        ];
+
+        $provider = $this->getFormProvider();
+		$forms = [
+		    'addgame' => $provider->getAddGameForm()->createView()
+        ];
 		
-		$responseData = array(
-			'searchForm' => $this->_searchHelper->getSearchForm()->createView(),
-			'hddUsage' => $hdd_usage . '/' . $hdd_total . 'GB used',
-			'ramUsage' => $mem_usage . 'MB used by PHP',
-			'cpuUsage' => 0,//(sys_getloadavg()[0]),
-			'dbSize' => ''//$db_size['']['size in MB'] . 'MB'
-		);	
-		return $this->render('AdminBundle::index.html.twig', $responseData);
+		$viewData = [
+		    'serverStats' => $serverStats,
+            'forms'   => $forms
+
+        ];
+		return $this->render('AdminBundle::index.html.twig', $viewData);
 	}
+
+
+	public function AddGameAction()
+    {
+        $provider = $this->getFormProvider();
+
+        $form = $provider->getAddGameForm();
+        if ($form->isValid()) {
+            $data = $form->getData();
+
+            //Save new game
+        }
+
+        return $this->forward('AdminBundle:Index:index');
+    }
+
+    private function getFormProvider()
+    {
+        return new \AdminBundle\Form\Provider(
+            $this->container->get('router'),
+            $this->container->get('request'),
+            $this->container->get('form.factory')
+        );
+    }
 }

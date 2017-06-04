@@ -19,44 +19,24 @@
 	</div>
 	<div id="tab_nav_main">
 		<div class="segment">
-			<h2>System Usage</h2>
-			<p>CPU (est.): {{ cpuUsage }}</p>
-			<p>PHP mem. usage: {{ ramUsage }}</p>
-			<p>Disk: {{ hddUsage }}</p>
-			<p>Database size: {{ dbSize }}</p>
+			<h2>System Stats</h2>
+			<p>CPU (est.): {{ serverStats.cpuUsage }}</p>
+			<p>PHP mem. usage: {{ serverStats.ramUsage }}</p>
+			<p>Disk: {{ serverStats.hddUsage }}</p>
+			<p>Database size: {{ serverStats.dbSize }}</p>
 		</div>
+        {% block addgame %}
+            {% if forms.addgame is defined %}
+			<div class="segment">
+                {% include "AdminBundle:Form:addgame.html.twig" with { form: forms.addgame } %}
+			</div>
+            {% endif %}
+        {% endblock %}
+
 		<div id="tab_nav_main_0">
 			<div class="segment">
 				<h2>Manual Data Recache</h2>
 				<button id="recache_gods" value="Recache Gods">Recache Gods</button>
-				<button id="recache_items" value="Recache Items">Recache Items</button>
-			</div>		
-			<div class="segment" id="api_tests">
-				<h2>Test API Requests</h2>
-				<button id="api_getplayer">GetPlayer</button>
-				<button id="api_getgods">GetGods</button>
-				<button id="api_getitems">GetItems</button>
-				<button id="api_getdemodetails">GetDemoDetails</button>
-				<button id="api_getesportsproleaguedetails">GetEsportsProleagueDetails</button>
-				<button id="api_getfriends">GetFriends</button>
-				<button id="api_getgodranks">GetGodRanks</button>
-				<button id="api_getgodrecommendeditems">GetGodRecommendedItems</button>
-				<button id="api_getmatchdetails">GetMatchDetails</button>
-				<button id="api_getmatchplayerdetails">GetMatchPlayerDetails</button>
-				<button id="api_getmatchidsbyqueue">GetMatchIdsByQueue</button>
-				<button id="api_getmatchdetailsbyqueue">GetMatchIdsByQueue</button>
-				<button id="api_getleagueleaderboard">GetLeagueLeaderboard</button>
-				<button id="api_getleagueseasons">GetLeagueSeasons</button>
-				<button id="api_getmatchhistory">GetMatchHistory</button>
-				<button id="api_getmotd">GetMOTD</button>
-				<button id="api_getplayerstatus">GetPlayerStatus</button>
-				<button id="api_getqueuestats">GetQueueStats</button>
-				<button id="api_getteamdetails">GetTeamDetails</button>
-				<button id="api_getteamplayers">GetTeamPlayers</button>
-				<button id="api_gettopmatches">GetTopMatches</button>
-				<button id="api_searchteams">SearchTeams</button>
-				<button id="api_getplayerachievements">GetPlayerAchievements</button>
-				<button id="api_getdataused">GetDataUsed</button>
 			</div>
 		</div>
 		<div id="tab_nav_main_1" class="hidden">
