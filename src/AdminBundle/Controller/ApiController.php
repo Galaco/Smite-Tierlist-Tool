@@ -6,6 +6,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Controller\AbstractController;
 
+
+/**
+ * Class ApiController
+ * @package AdminBundle\Controller
+ */
 class ApiController extends AbstractController
 {
     const FETCH_CHARACTERS = 'fetch';
@@ -23,7 +28,7 @@ class ApiController extends AbstractController
      *
      * @param string  $_gameId
      * @param string  $_request
-     * @return string
+     * @return JsonResponse
      */
     public function indexAction($_gameId, $_request)
     {
@@ -51,8 +56,9 @@ class ApiController extends AbstractController
 
 
     /**
-     * Create Json Response for API
-     * @return string
+     * Create Json Response for API.
+     *
+     * @return JsonResponse
      */
     private function _createJsonResponse()
     {

@@ -5,6 +5,11 @@ namespace AdminBundle\Util\GameData\Smite;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 
+/**
+ * A session with the Smite API. Smite API has a 15minute lifetime session in order make calls to endpoints.
+ *
+ * @package AdminBundle\Util\GameData\Smite
+ */
 class Session
 {
     const CACHE_KEY = 'gamedata.smite.session';

@@ -5,6 +5,11 @@ namespace AdminBundle\Util;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
 
+/**
+ * Provider for different game apis.
+ *
+ * @package AdminBundle\Util
+ */
 class GameDataProvider
 {
     const GAME_ID = [
@@ -19,7 +24,9 @@ class GameDataProvider
         'smite' => Parser\Smite::class
     ];
 
-
+    /**
+     * @var Container
+     */
     protected $_container;
 
     public function __construct(Container $serviceContainer)

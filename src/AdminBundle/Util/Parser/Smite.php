@@ -6,6 +6,12 @@ use AdminBundle\Util\Exception\BadParameterException;
 use AdminBundle\Util\ParserInterface;
 
 
+/**
+ * Parser for the Smite endpoints.
+ * Remember this is only designed for specific endpoints.
+ *
+ * @package AdminBundle\Util\Parser
+ */
 class Smite implements ParserInterface
 {
     /**

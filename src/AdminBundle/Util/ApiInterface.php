@@ -2,6 +2,11 @@
 
 namespace AdminBundle\Util;
 
+/**
+ * Required methods that any api implementation must define.
+ *
+ * @package AdminBundle\Util
+ */
 interface ApiInterface {
 
 	/**

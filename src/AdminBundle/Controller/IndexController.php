@@ -4,59 +4,59 @@ namespace AdminBundle\Controller;
 
 use AppBundle\Controller\AbstractController;
 
+/**
+ * Class IndexController
+ * @package AdminBundle\Controller
+ */
 class IndexController extends AbstractController
 {
+
+    /**
+     * Admin index route.
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
 	public function IndexAction()
-	{		
-		$hdd_total = ((int)(disk_total_space("/")/1000000))/1000;
-		$hdd_usage = $hdd_total - ((int)(disk_free_space("/")/1000000))/1000;
-		$mem_usage = (int)(memory_get_usage()/1000000 );
-		
-		/*$rsm = new ResultSetMapping();
-		$rsm->addIndexByScalar('unique_name');
-		$rsm->addScalarResult('smite', 'smite');
-		$rsm->addScalarResult('size in MB', 'size in MB');
-		$query = $this
-			->getDoctrine()
-			->getManager()
-			->createNativeQuery('SELECT table_schema "smite", sum(data_length + index_length)/1024/1024 "size in MB" FROM information_schema.TABLES GROUP BY table_schema', $rsm);
-		$db_size = $query->getArrayResult();*/
-
-		$serverStats = [
-            'hddUsage' => $hdd_usage . '/' . $hdd_total . 'GB used',
-            'ramUsage' => $mem_usage . 'MB used by PHP',
-            'cpuUsage' => 0,//(sys_getloadavg()[0]),
-            'dbSize' => ''//$db_size['']['size in MB'] . 'MB'
-        ];
-
+	{
+        /** @var \AdminBundle\Form\Provider */
         $provider = $this->getFormProvider();
 		$forms = [
 		    'addgame' => $provider->getAddGameForm()->createView()
         ];
 		
 		$viewData = [
-		    'serverStats' => $serverStats,
             'forms'   => $forms
-
         ];
 		return $this->render('AdminBundle::index.html.twig', $viewData);
 	}
 
-
+    /**
+     * Add support for a new game form process.
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
 	public function AddGameAction()
     {
+        /** @var \AdminBundle\Form\Provider */
         $provider = $this->getFormProvider();
 
+        /** @var \AdminBundle\Form\Type\AddGame $form */
         $form = $provider->getAddGameForm();
         if ($form->isValid()) {
             $data = $form->getData();
 
             //Save new game
+            //Currently unhandled, as adding a new game currently will not work.
         }
 
         return $this->forward('AdminBundle:Index:index');
     }
 
+    /**
+     * Get admin form provider.
+     *
+     * @return \AdminBundle\Form\Provider
+     */
     private function getFormProvider()
     {
         return new \AdminBundle\Form\Provider(

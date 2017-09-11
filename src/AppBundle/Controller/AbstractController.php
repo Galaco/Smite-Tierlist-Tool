@@ -5,7 +5,12 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class AbstractController extends Controller
+/**
+ * Base controller.
+ *
+ * @package AppBundle\Controller
+ */
+abstract class AbstractController extends Controller
 {
      
     /**

@@ -2,6 +2,10 @@
 
 namespace AdminBundle\Util;
 
+/**
+ * class AbstractGameData
+ * @package AdminBundle\Util
+ */
 abstract class AbstractGameData implements ApiInterface {
 
     /** @var  ParserInterface */
@@ -31,6 +35,7 @@ abstract class AbstractGameData implements ApiInterface {
 		//Determine grouping (4xx, 5xx, etc.)
 		$httpCodeGroup = (int)($httpCode / 100);
 
+		//Handle error codes
 		if ($httpCode != 200) {
 			if ($httpCodeGroup == 4) {
 				throw new Exception\BadRequestException(sprintf('Api returned error code: %s\nMessage was: %s', $httpCode, $response));

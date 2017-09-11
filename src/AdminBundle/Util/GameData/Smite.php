@@ -8,6 +8,11 @@ use AdminBundle\Util\GameData\Smite\Session;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
+/**
+ * Definition of the Smite API.
+ *
+ * @package AdminBundle\Util\GameData
+ */
 class Smite extends AbstractGameData
 {
 	//Smite constants

@@ -9,19 +9,31 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 class AddGame extends AbstractType
 {
+    const FORM_NAME = 'addgame';
+
     /**
      * @var Router
      */
     private $_router;
 
+
     /**
-     * @param Router
+     * Constructor
+     *
+     * @param Router  $router
      */
     public function __construct(Router $router)
     {
         $this->_router = $router;
     }
 
+
+    /**
+     * Construct the form elements.
+     *
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $route = $this->_router->generate('adminbundle_index_addgame', []);
@@ -44,8 +56,14 @@ class AddGame extends AbstractType
             ->add('Add', 'submit');
     }
 
+
+    /**
+     * Returns form name.
+     *
+     * @return string
+     */
     public function getName()
     {
-        return 'addgame';
+        return $this::FORM_NAME;
     }
 }

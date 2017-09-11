@@ -6,6 +6,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\AbstractController;
 
 
+/**
+ * Main index page controller.
+ *
+ * @package AppBundle\Controller
+ */
 class HomeController extends AbstractController
 {
     public function indexAction()
@@ -14,11 +19,4 @@ class HomeController extends AbstractController
 
 		));
     }
-	
-	public function homeAction()
-	{
-		return $this->render('AppBundle:Home:index.html.twig', array(
-
-		));
-	}
 }
