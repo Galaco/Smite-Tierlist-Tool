@@ -1,11 +1,11 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: 52.49.78.252
+    database_host: localhost
     database_driver: pdo_mysql
     database_port: 3306
-    database_name: smite
-    database_user: smiteuser
-    database_password: mkCY4c7MyaggxhXMsdyUvKZ3
+    database_name: dbname
+    database_user: root
+    database_password:
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
@@ -20,6 +20,6 @@ parameters:
     aws_cloudfront_keypair: aws_cloudfront_keypair
     aws_cloudfront_pem: aws_cloudfront_pem
     smite_dev_id: 1459
-    smite_auth_key: CFB9EF80C82749C3BC9A2D29D1CAD241
+    smite_auth_key: authkey
     smite_base_uri: 'http://api.smitegame.com/smiteapi.svc/'
-    smite_aws_s3_bucket: cdn.smite.link
+    smite_aws_s3_bucket: cdn_url
